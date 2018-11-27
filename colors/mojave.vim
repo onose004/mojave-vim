@@ -1,4 +1,4 @@
-" MojaveDark Theme: {{{
+" Mojave Theme: {{{
 "
 " Code licensed under the MIT license
 " http://zenorocha.mit-license.org
@@ -19,7 +19,7 @@ if v:version > 580
   endif
 endif
 
-let g:colors_name = 'mojave-dark'
+let g:colors_name = 'mojave'
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running') && &t_Co != 256
   finish
@@ -51,7 +51,7 @@ let s:yellow    = ['#f2bc58', 215]
 
 let s:none      = ['NONE', 'NONE']
 
-let g:mojave-dark_palette = {
+let g:mojave_palette = {
       \ 'fg': s:fg,
       \ 'bg': s:bg,
       \ 'selection': s:selection,
@@ -93,39 +93,39 @@ endif
 " }}}2
 " User Configuration: {{{2
 
-if !exists('g:mojave-dark_bold')
-  let g:mojave-dark_bold = 1
+if !exists('g:mojave_bold')
+  let g:mojave_bold = 1
 endif
 
-if !exists('g:mojave-dark_italic')
-  let g:mojave-dark_italic = 1
+if !exists('g:mojave_italic')
+  let g:mojave_italic = 1
 endif
 
-if !exists('g:mojave-dark_underline')
-  let g:mojave-dark_underline = 1
+if !exists('g:mojave_underline')
+  let g:mojave_underline = 1
 endif
 
-if !exists('g:mojave-dark_undercurl') && g:mojave-dark_underline != 0
-  let g:mojave-dark_undercurl = 1
+if !exists('g:mojave_undercurl') && g:mojave_underline != 0
+  let g:mojave_undercurl = 1
 endif
 
-if !exists('g:mojave-dark_inverse')
-  let g:mojave-dark_inverse = 1
+if !exists('g:mojave_inverse')
+  let g:mojave_inverse = 1
 endif
 
-if !exists('g:mojave-dark_colorterm')
-  let g:mojave-dark_colorterm = 1
+if !exists('g:mojave_colorterm')
+  let g:mojave_colorterm = 1
 endif
 
 "}}}2
 " Script Helpers: {{{2
 
 let s:attrs = {
-      \ 'bold': g:mojave-dark_bold == 1 ? 'bold' : 0,
-      \ 'italic': g:mojave-dark_italic == 1 ? 'italic' : 0,
-      \ 'underline': g:mojave-dark_underline == 1 ? 'underline' : 0,
-      \ 'undercurl': g:mojave-dark_undercurl == 1 ? 'undercurl' : 0,
-      \ 'inverse': g:mojave-dark_inverse == 1 ? 'inverse' : 0,
+      \ 'bold': g:mojave_bold == 1 ? 'bold' : 0,
+      \ 'italic': g:mojave_italic == 1 ? 'italic' : 0,
+      \ 'underline': g:mojave_underline == 1 ? 'underline' : 0,
+      \ 'undercurl': g:mojave_undercurl == 1 ? 'undercurl' : 0,
+      \ 'inverse': g:mojave_inverse == 1 ? 'inverse' : 0,
       \}
 
 function! s:h(scope, fg, ...) " bg, attr_list, special
@@ -155,7 +155,7 @@ function! s:h(scope, fg, ...) " bg, attr_list, special
 endfunction
 
 function! s:Background()
-  if g:mojave-dark_colorterm || has('gui_running')
+  if g:mojave_colorterm || has('gui_running')
     return s:bg
   else
     return s:none
@@ -163,65 +163,65 @@ function! s:Background()
 endfunction
 
 "}}}2
-" MojaveDark Highlight Groups: {{{2
+" Mojave Highlight Groups: {{{2
 
-call s:h('MojaveDarkBgLight', s:none, s:bglight)
-call s:h('MojaveDarkBgLighter', s:none, s:bglighter)
-call s:h('MojaveDarkBgDark', s:none, s:bgdark)
-call s:h('MojaveDarkBgDarker', s:none, s:bgdarker)
+call s:h('MojaveBgLight', s:none, s:bglight)
+call s:h('MojaveBgLighter', s:none, s:bglighter)
+call s:h('MojaveBgDark', s:none, s:bgdark)
+call s:h('MojaveBgDarker', s:none, s:bgdarker)
 
-call s:h('MojaveDarkFg', s:fg)
-call s:h('MojaveDarkFgUnderline', s:fg, s:none, [s:attrs.underline])
-call s:h('MojaveDarkFgBold', s:fg, s:none, [s:attrs.bold])
+call s:h('MojaveFg', s:fg)
+call s:h('MojaveFgUnderline', s:fg, s:none, [s:attrs.underline])
+call s:h('MojaveFgBold', s:fg, s:none, [s:attrs.bold])
 
-call s:h('MojaveDarkComment', s:comment)
-call s:h('MojaveDarkCommentBold', s:comment, s:none, [s:attrs.bold])
+call s:h('MojaveComment', s:comment)
+call s:h('MojaveCommentBold', s:comment, s:none, [s:attrs.bold])
 
-call s:h('MojaveDarkSelection', s:none, s:selection)
+call s:h('MojaveSelection', s:none, s:selection)
 
-call s:h('MojaveDarkSubtle', s:subtle)
+call s:h('MojaveSubtle', s:subtle)
 
-call s:h('MojaveDarkCyan', s:cyan)
-call s:h('MojaveDarkCyanItalic', s:cyan, s:none, [s:attrs.italic])
+call s:h('MojaveCyan', s:cyan)
+call s:h('MojaveCyanItalic', s:cyan, s:none, [s:attrs.italic])
 
-call s:h('MojaveDarkGreen', s:green)
-call s:h('MojaveDarkGreenBold', s:green, s:none, [s:attrs.bold])
-call s:h('MojaveDarkGreenItalic', s:green, s:none, [s:attrs.italic])
-call s:h('MojaveDarkGreenItalicUnderline', s:green, s:none, [s:attrs.italic, s:attrs.underline])
+call s:h('MojaveGreen', s:green)
+call s:h('MojaveGreenBold', s:green, s:none, [s:attrs.bold])
+call s:h('MojaveGreenItalic', s:green, s:none, [s:attrs.italic])
+call s:h('MojaveGreenItalicUnderline', s:green, s:none, [s:attrs.italic, s:attrs.underline])
 
-call s:h('MojaveDarkOrange', s:orange)
-call s:h('MojaveDarkOrangeBold', s:orange, s:none, [s:attrs.bold])
-call s:h('MojaveDarkOrangeItalic', s:orange, s:none, [s:attrs.italic])
-call s:h('MojaveDarkOrangeBoldItalic', s:orange, s:none, [s:attrs.bold, s:attrs.italic])
-call s:h('MojaveDarkOrangeInverse', s:bg, s:orange)
+call s:h('MojaveOrange', s:orange)
+call s:h('MojaveOrangeBold', s:orange, s:none, [s:attrs.bold])
+call s:h('MojaveOrangeItalic', s:orange, s:none, [s:attrs.italic])
+call s:h('MojaveOrangeBoldItalic', s:orange, s:none, [s:attrs.bold, s:attrs.italic])
+call s:h('MojaveOrangeInverse', s:bg, s:orange)
 
-call s:h('MojaveDarkPink', s:pink)
-call s:h('MojaveDarkPinkItalic', s:pink, s:none, [s:attrs.italic])
+call s:h('MojavePink', s:pink)
+call s:h('MojavePinkItalic', s:pink, s:none, [s:attrs.italic])
 
-call s:h('MojaveDarkPurple', s:purple)
-call s:h('MojaveDarkPurpleBold', s:purple, s:none, [s:attrs.bold])
-call s:h('MojaveDarkPurpleItalic', s:purple, s:none, [s:attrs.italic])
+call s:h('MojavePurple', s:purple)
+call s:h('MojavePurpleBold', s:purple, s:none, [s:attrs.bold])
+call s:h('MojavePurpleItalic', s:purple, s:none, [s:attrs.italic])
 
-call s:h('MojaveDarkRed', s:red)
-call s:h('MojaveDarkRedInverse', s:fg, s:red)
+call s:h('MojaveRed', s:red)
+call s:h('MojaveRedInverse', s:fg, s:red)
 
-call s:h('MojaveDarkYellow', s:yellow)
-call s:h('MojaveDarkYellowItalic', s:yellow, s:none, [s:attrs.italic])
+call s:h('MojaveYellow', s:yellow)
+call s:h('MojaveYellowItalic', s:yellow, s:none, [s:attrs.italic])
 
-call s:h('MojaveDarkError', s:red, s:none, [], s:red)
+call s:h('MojaveError', s:red, s:none, [], s:red)
 
-call s:h('MojaveDarkErrorLine', s:none, s:none, [s:attrs.undercurl], s:red)
-call s:h('MojaveDarkWarnLine', s:none, s:none, [s:attrs.undercurl], s:orange)
-call s:h('MojaveDarkInfoLine', s:none, s:none, [s:attrs.undercurl], s:red)
+call s:h('MojaveErrorLine', s:none, s:none, [s:attrs.undercurl], s:red)
+call s:h('MojaveWarnLine', s:none, s:none, [s:attrs.undercurl], s:orange)
+call s:h('MojaveInfoLine', s:none, s:none, [s:attrs.undercurl], s:red)
 
-call s:h('MojaveDarkTodo', s:cyan, s:none, [s:attrs.bold, s:attrs.inverse])
-call s:h('MojaveDarkSearch', s:green, s:none, [s:attrs.inverse])
-call s:h('MojaveDarkBoundary', s:comment, s:bgdark)
-call s:h('MojaveDarkLink', s:cyan, s:none, [s:attrs.underline])
+call s:h('MojaveTodo', s:cyan, s:none, [s:attrs.bold, s:attrs.inverse])
+call s:h('MojaveSearch', s:green, s:none, [s:attrs.inverse])
+call s:h('MojaveBoundary', s:comment, s:bgdark)
+call s:h('MojaveLink', s:cyan, s:none, [s:attrs.underline])
 
-call s:h('MojaveDarkDiffChange', s:none, s:none)
-call s:h('MojaveDarkDiffText', s:bg, s:orange)
-call s:h('MojaveDarkDiffDelete', s:red, s:bgdark)
+call s:h('MojaveDiffChange', s:none, s:none)
+call s:h('MojaveDiffText', s:bg, s:orange)
+call s:h('MojaveDiffDelete', s:red, s:bgdark)
 
 " }}}2
 
@@ -237,38 +237,38 @@ call s:h('StatusLineNC', s:none, s:bglight)
 call s:h('WildMenu', s:bg, s:purple, [s:attrs.bold])
 call s:h('CursorLine', s:none, s:subtle)
 
-hi! link ColorColumn  MojaveDarkBgDark
-hi! link CursorColumn MojaveDarkBgDark
-hi! link CursorLineNr MojaveDarkYellow
-hi! link DiffAdd      MojaveDarkGreen
+hi! link ColorColumn  MojaveBgDark
+hi! link CursorColumn MojaveBgDark
+hi! link CursorLineNr MojaveYellow
+hi! link DiffAdd      MojaveGreen
 hi! link DiffAdded    DiffAdd
-hi! link DiffChange   MojaveDarkDiffChange
-hi! link DiffDelete   MojaveDarkDiffDelete
+hi! link DiffChange   MojaveDiffChange
+hi! link DiffDelete   MojaveDiffDelete
 hi! link DiffRemoved  DiffDelete
-hi! link DiffText     MojaveDarkDiffText
-hi! link Directory    MojaveDarkPurpleBold
-hi! link ErrorMsg     MojaveDarkRedInverse
-hi! link FoldColumn   MojaveDarkSubtle
-hi! link Folded       MojaveDarkBoundary
-hi! link IncSearch    MojaveDarkOrangeInverse
-hi! link LineNr       MojaveDarkComment
-hi! link MoreMsg      MojaveDarkFgBold
-hi! link NonText      MojaveDarkSubtle
-hi! link Pmenu        MojaveDarkBgDark
-hi! link PmenuSbar    MojaveDarkBgDark
-hi! link PmenuSel     MojaveDarkSelection
-hi! link PmenuThumb   MojaveDarkSelection
-hi! link Question     MojaveDarkFgBold
-hi! link Search       MojaveDarkSearch
-hi! link SignColumn   MojaveDarkComment
-hi! link TabLine      MojaveDarkBoundary
-hi! link TabLineFill  MojaveDarkBgDarker
+hi! link DiffText     MojaveDiffText
+hi! link Directory    MojavePurpleBold
+hi! link ErrorMsg     MojaveRedInverse
+hi! link FoldColumn   MojaveSubtle
+hi! link Folded       MojaveBoundary
+hi! link IncSearch    MojaveOrangeInverse
+hi! link LineNr       MojaveComment
+hi! link MoreMsg      MojaveFgBold
+hi! link NonText      MojaveSubtle
+hi! link Pmenu        MojaveBgDark
+hi! link PmenuSbar    MojaveBgDark
+hi! link PmenuSel     MojaveSelection
+hi! link PmenuThumb   MojaveSelection
+hi! link Question     MojaveFgBold
+hi! link Search       MojaveSearch
+hi! link SignColumn   MojaveComment
+hi! link TabLine      MojaveBoundary
+hi! link TabLineFill  MojaveBgDarker
 hi! link TabLineSel   Normal
-hi! link Title        MojaveDarkGreenBold
-hi! link VertSplit    MojaveDarkBoundary
-hi! link Visual       MojaveDarkSelection
+hi! link Title        MojaveGreenBold
+hi! link VertSplit    MojaveBoundary
+hi! link Visual       MojaveSelection
 hi! link VisualNOS    Visual
-hi! link WarningMsg   MojaveDarkOrangeInverse
+hi! link WarningMsg   MojaveOrangeInverse
 
 " }}}
 " Syntax: {{{
@@ -279,58 +279,58 @@ call s:h('Conceal', s:comment, s:bglight)
 
 " Neovim uses SpecialKey for escape characters only. Vim uses it for that, plus whitespace.
 if has('nvim')
-  hi! link SpecialKey MojaveDarkRed
+  hi! link SpecialKey MojaveRed
 else
-  hi! link SpecialKey MojaveDarkSubtle
+  hi! link SpecialKey MojaveSubtle
 endif
 
-hi! link Comment MojaveDarkComment
-hi! link Underlined MojaveDarkFgUnderline
-hi! link Todo MojaveDarkTodo
+hi! link Comment MojaveComment
+hi! link Underlined MojaveFgUnderline
+hi! link Todo MojaveTodo
 
-hi! link Error MojaveDarkError
-hi! link SpellBad MojaveDarkErrorLine
-hi! link SpellLocal MojaveDarkWarnLine
-hi! link SpellCap MojaveDarkInfoLine
-hi! link SpellRare MojaveDarkInfoLine
+hi! link Error MojaveError
+hi! link SpellBad MojaveErrorLine
+hi! link SpellLocal MojaveWarnLine
+hi! link SpellCap MojaveInfoLine
+hi! link SpellRare MojaveInfoLine
 
-hi! link Constant MojaveDarkPurple
-hi! link String MojaveDarkYellow
-hi! link Character MojaveDarkPink
+hi! link Constant MojavePurple
+hi! link String MojaveYellow
+hi! link Character MojavePink
 hi! link Number Constant
 hi! link Boolean Constant
 hi! link Float Constant
 
-hi! link Identifier MojaveDarkFg
-hi! link Function MojaveDarkGreen
+hi! link Identifier MojaveFg
+hi! link Function MojaveGreen
 
-hi! link Statement MojaveDarkPink
-hi! link Conditional MojaveDarkPink
-hi! link Repeat MojaveDarkPink
-hi! link Label MojaveDarkPink
-hi! link Operator MojaveDarkPink
-hi! link Keyword MojaveDarkPink
-hi! link Exception MojaveDarkPink
+hi! link Statement MojavePink
+hi! link Conditional MojavePink
+hi! link Repeat MojavePink
+hi! link Label MojavePink
+hi! link Operator MojavePink
+hi! link Keyword MojavePink
+hi! link Exception MojavePink
 
-hi! link PreProc MojaveDarkPink
-hi! link Include MojaveDarkPink
-hi! link Define MojaveDarkPink
-hi! link Macro MojaveDarkPink
-hi! link PreCondit MojaveDarkPink
-hi! link StorageClass MojaveDarkPink
-hi! link Structure MojaveDarkPink
-hi! link Typedef MojaveDarkPink
+hi! link PreProc MojavePink
+hi! link Include MojavePink
+hi! link Define MojavePink
+hi! link Macro MojavePink
+hi! link PreCondit MojavePink
+hi! link StorageClass MojavePink
+hi! link Structure MojavePink
+hi! link Typedef MojavePink
 
-hi! link Type MojaveDarkCyanItalic
+hi! link Type MojaveCyanItalic
 
-hi! link Delimiter MojaveDarkFg
+hi! link Delimiter MojaveFg
 
-hi! link Special MojaveDarkPink
-hi! link SpecialComment MojaveDarkCyanItalic
-hi! link Tag MojaveDarkCyan
-hi! link helpHyperTextJump MojaveDarkLink
-hi! link helpCommand MojaveDarkPurple
-hi! link helpExample MojaveDarkGreen
+hi! link Special MojavePink
+hi! link SpecialComment MojaveCyanItalic
+hi! link Tag MojaveCyan
+hi! link helpHyperTextJump MojaveLink
+hi! link helpCommand MojavePurple
+hi! link helpExample MojaveGreen
 hi! link helpBacktick Special
 
 "}}}
