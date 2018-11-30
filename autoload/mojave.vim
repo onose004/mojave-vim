@@ -321,12 +321,12 @@ hi! link StorageClass MojavePink
 hi! link Structure MojavePink
 hi! link Typedef MojavePink
 
-hi! link Type MojaveCyanItalic
+hi! link Type MojaveCyan
 
 hi! link Delimiter MojaveFg
 
 hi! link Special MojavePink
-hi! link SpecialComment MojaveCyanItalic
+hi! link SpecialComment MojaveCyan
 hi! link Tag MojaveCyan
 hi! link helpHyperTextJump MojaveLink
 hi! link helpCommand MojavePurple
